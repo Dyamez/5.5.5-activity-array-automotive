@@ -14,10 +14,10 @@ class Vehicle {
     start() {
         if (this.fuel > 0) {
             return this.started = true;
-            console.log("engine started...!!!");
+            console.log("car is ready to drive");
         } else {
             return this.started = false;
-            console.log("engine cannot start...");
+            console.log("engine failure. Please see the dashboard for more information");
         }
     }
     accelerate() {
@@ -30,7 +30,7 @@ class Vehicle {
                 this.stop();
             }
         } else {
-            alert("You need to start the engine first.");
+            alert("Press the 'Start' button while stepping on the gas pedal.");
         }
     }
     decelerate() {
@@ -40,15 +40,15 @@ class Vehicle {
                     console.log(this.speed -= 1);
                     this.fuel = this.fuel - 1;
                 } else {
-                    console.log(this + " has stopped moving");
+                    console.log(this + " vehicle stopped.");
                     this.fuel = this.fuel - 1;
                 }
             } else {
-                console.log("out of fuel.");
+                console.log("need fuel.");
                 this.stop();
             }
         } else {
-            alert("You need to start the engine first.");
+            alert("Press the 'Start' button while stepping on the gas pedal.");
         }
     }
     stop() {
@@ -74,13 +74,11 @@ class Vehicle {
 
     typeOfVehicle(wheels) {
         if (this.numberOfWheels == 8 && 8 == wheels) {
-            console.log(this.model + " " + this.make + " is a Truck");
-        } else if (this.numberOfWheels == 4 && 4 == wheels) {
-            console.log(this.model + " " + this.make + " is a CAr");
+            console.log(this.model + " " + this.make + " is a Car or Truck");
         } else if (this.numberOfWheels == 2 && 2 == wheels) {
-            console.log(this.model + " " + this.make + " is a Bike");
+            console.log(this.model + " " + this.make + " is a Motorcycle");
         } else {
-            console.log("Unknown type of vehicle");
+            console.log("Unknown type of machine");
         }
     }
 }

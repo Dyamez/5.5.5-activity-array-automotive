@@ -9,6 +9,7 @@ const VehicleModule = require("./vehicleBaseClass").Vehicle
 //After you write the derived Car class, you should test it out.
 
 //Note: You can code your derived Car class here or make a file named index.js and do it there.
+//TO DO: Code the Car subclass here or in index.js file, i.e. class Car extends Vehicle ...
 class Car extends VehicleModule {
     constructor(make, model, year, color, mileage) {
         super(make, model, year, color, mileage);
@@ -19,10 +20,6 @@ class Car extends VehicleModule {
             this.fuel = 10;
             this.scheduledService = false;
     }
-
-
-
-//TO DO: Code the Car subclass here or in index.js file, i.e. class Car extends Vehicle ...
 
 checkService() {
     if(this.mileage > 3000) {
@@ -45,15 +42,54 @@ loadPassenger(num) {
         } else {
             console.log(this.model + ' ' + this.make + ' this vehicle is overloaded.'); 
         } } else { 
-            console.log(this.model + ' ' + this.make + ' is overloaded');
+            console.log(this.model + ' ' + this.make + ' is ready to go');
         }
     }
 
 
 }
 
+class Truck extends VehicleModule {
+    constructor(make, model, year, color, mileage) {
+        super(make, model, year, color, mileage);
+            this.maxPassenger = 5;
+            this.passenger = 4;
+            this.numberOfWheels = 4;
+            this.maximumSpeed = 210;
+            this.fuel = 90;
+            this.scheduledService = false;
+    }
+    checkService() {
+        if(this.mileage > 6000) {
+            this.scheduleService = true;
+            return this.scheduleService;
+        }
+    }
+    start() {
+        if(this.fuel > 0) {
+            console.log('Monster Truck, Engaged!')
+            return this.begin = true;
+        }
+    }
+    
+    loadPassenger(num) {
+        if (this.passenger < this.maxPassengers) {
+            if ((num + this.passenger) <= this.maxPassengers) {
+                this.passenger = num;
+                return this.passenger;
+            } else {
+                console.log(this.model + ' ' + this.make + ' F150 is overloaded.'); 
+            } } else { 
+                console.log(this.model + ' ' + this.make + ' is locked in and ready for an Adventure.');
+            }
+        }
+    
+    
+    }
+
 
 let myClunker = new Car('mercury', 'A28 Sedan', '2077', 'Raptured Purple', 101000)
+let myMonsterTruck = new Truck('ford', 'f150', '2023', 'grey', '55000')
 
 myClunker.start()
 myClunker.loadPassenger(5)
@@ -62,7 +98,11 @@ myClunker.checkService()
 
 console.log(myClunker)
 
+myMonsterTruck.start()
+myMonsterTruck.loadPassenger()
+myMonsterTruck.checkService()
 
+console.log(myMonsterTruck)
 
 
 
